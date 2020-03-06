@@ -1,15 +1,34 @@
 import os
 import local as lc
 
-command = input()
-
+path = os.getcwd()
 
 def main():
-    pass
+    while True:
+        print(os.getcwd())
+        print('1. Просмотр каталога \n'
+              '2. На уровень вверх \n'
+              '3. На уровень вниз \n'
+              '4. Количество файлов и каталогов \n'
+              '5. Размер текущего каталога \n'
+              '6. Поиск файла \n'
+              '7. Выход из программы \n'
+              'Выберите пункт меню:')
+        command = acceptCommand()
+        runCommand((command))
+        if command == 7:
+            print('Работа программы завершена.')
+            break
 
 
-def acceptCommand():  # vova
-    pass
+
+def acceptCommand():
+    command = int(input())
+    if  0 < command > 7:
+        print('Такой команды не существует.')
+    else:
+        runCommand(command)
+
 
 
 def moveUp():  # Киррил
@@ -17,15 +36,30 @@ def moveUp():  # Киррил
 
 
 def runCommand(command):  # Vova
+    if command == 1:
+        print(os.listdir(os.getcwd()))
+    if command == 2:
+        moveUp()
+    if command == 3:
+        moveDown()
+    if command == 4:
+        countFiles()
+    if command == 5:
+        countBytes()
+    if command == 6:
+        print('К сожалению, данная функция пока недоступна.')
+    if command == 7:
+        print('Работа программы завершена.')
+        exit()
+
+
+def moveDown():  # Kirill
     pass
 
 
-def moveDown(currentDir):  # Kirill
-    pass
-
-
-def countFiles(path):  
+def countFiles():
     path_f = []
+    path = os.getcwd()
     for d, dirs, files in os.walk(path):
         for f in files:
             path = os.path.join(d, f)  # формирование адреса
@@ -37,9 +71,11 @@ def countFiles(path):
     countFiles_1(path_f)
 
 
-def countBytes(path):  # Sashka
+def countBytes():  # Sashka
     pass
 
 
-def findFiles(target, path): # (TOP TASK) Sashka
+def findFiles(): # (TOP TASK) Sashka
     pass
+
+main()
