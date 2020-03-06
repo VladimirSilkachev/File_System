@@ -49,9 +49,9 @@ def runCommand(command):  # Vova
     if command == 5:
         countBytes()
     if command == 6:
-        print('К сожалению, данная функция пока недоступна.')
+        print(lc.sorry)
     if command == 7:
-        print('Работа программы завершена.')
+        print(lc.end)
         exit()
 
 
