@@ -32,7 +32,16 @@ def acceptCommand():
 
 
 def moveUp():  # Киррил
-    pass
+    b = os.getcwd()
+    b = b[::-1]
+    for i in b:
+        if i == "\\":
+            b = b[1:len(b) + 1]
+            break
+        b = b[1:len(b) + 1]
+    b = b[::-1]
+    os.chdir(b)
+    return local.currdir + os.getcwd()
 
 
 def runCommand(command):  # Vova
@@ -53,9 +62,13 @@ def runCommand(command):  # Vova
         exit()
 
 
-def moveDown():  # Kirill
-    pass
-
+def moveDown(currentDir):  # Kirill
+    if len(os.listdir(currentDir)) == 0:
+        print("ERROR")
+    if len(os.listdir(currentDir)) == 1:
+        b = os.listdir(currentDir)
+        os.chdir(currentDir + "\\" + b[0])
+    return local.currdir + os.getcwd()
 
 def countFiles():
     path_f = []
