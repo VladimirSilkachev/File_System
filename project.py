@@ -24,8 +24,17 @@ def moveDown(currentDir):  # Kirill
     pass
 
 
-def countFiles(path):  # Sashka
-    pass
+def countFiles(path):  
+    path_f = []
+    for d, dirs, files in os.walk(path):
+        for f in files:
+            path = os.path.join(d, f)  # формирование адреса
+            path_f.append(path)  # добавление адреса в список
+    def countFiles_1(path_f):
+        if len(path_f) == 1:
+            return 1
+        return 1 + countFiles_1(path_f.pop())
+    countFiles_1(path_f)
 
 
 def countBytes(path):  # Sashka
