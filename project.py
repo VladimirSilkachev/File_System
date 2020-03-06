@@ -63,12 +63,13 @@ def runCommand(command):  # Vova
 
 
 def moveDown(currentDir):  # Kirill
-    if len(os.listdir(currentDir)) == 0:
-        print("ERROR")
-    if len(os.listdir(currentDir)) == 1:
-        b = os.listdir(currentDir)
-        os.chdir(currentDir + "\\" + b[0])
-    return local.currdir + os.getcwd()
+    os.chdir("D:\проект\вова")
+    if len(os.listdir(os.getcwd())) == 0:
+        return "Здесь нет подкаталогов"
+    if a not in os.listdir(os.getcwd()):
+        return "Этого подкаталога здесь нет"
+    os.chdir(os.getcwd() + "//" + a)
+    return "Текущий директорий: " + os.getcwd()
 
 def countFiles():
     path_f = []
