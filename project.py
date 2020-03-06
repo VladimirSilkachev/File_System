@@ -6,18 +6,11 @@ path = os.getcwd()
 def main():
     while True:
         print(os.getcwd())
-        print('1. Просмотр каталога \n'
-              '2. На уровень вверх \n'
-              '3. На уровень вниз \n'
-              '4. Количество файлов и каталогов \n'
-              '5. Размер текущего каталога \n'
-              '6. Поиск файла \n'
-              '7. Выход из программы \n'
-              'Выберите пункт меню:')
+        print(lc.menu)
         command = acceptCommand()
         runCommand((command))
         if command == 7:
-            print('Работа программы завершена.')
+            print(lc.end)
             break
 
 
@@ -25,7 +18,7 @@ def main():
 def acceptCommand():
     command = int(input())
     if  0 < command > 7:
-        print('Такой команды не существует.')
+        print(lc.not_real)
     else:
         runCommand(command)
 
@@ -41,7 +34,7 @@ def moveUp():  # Киррил
         b = b[1:len(b) + 1]
     b = b[::-1]
     os.chdir(b)
-    return local.currdir + os.getcwd()
+    return lc.currdir + os.getcwd()
 
 
 def runCommand(command):  # Vova
@@ -65,11 +58,11 @@ def runCommand(command):  # Vova
 def moveDown(currentDir):  # Kirill
     os.chdir("D:\проект\вова")
     if len(os.listdir(os.getcwd())) == 0:
-        return "Здесь нет подкаталогов"
+        return lc.Err
     if a not in os.listdir(os.getcwd()):
-        return "Этого подкаталога здесь нет"
+        return lc.here_no
     os.chdir(os.getcwd() + "//" + a)
-    return "Текущий директорий: " + os.getcwd()
+    return lc.currdir + os.getcwd()
 
 def countFiles():
     path_f = []
