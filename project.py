@@ -1,3 +1,5 @@
+# Case-Project №2
+# Силкачев 35% Попов 38% Винников 40%
 import os
 import local as lc
 
