@@ -36,7 +36,7 @@ def moveUp():
         b = b[1:len(b) + 1]
     b = b[::-1]
     os.chdir(b)
-    return lc.currdir + os.getcwd()
+    print(lc.currdir + os.getcwd())
 
 
 def runCommand(command):  
@@ -57,14 +57,14 @@ def runCommand(command):
         exit()
 
 
-def moveDown(currentDir):  
-    os.chdir("D:\проект\вова")
+def moveDown(currentDir): 
     if len(os.listdir(os.getcwd())) == 0:
-        return lc.Err
-    if a not in os.listdir(os.getcwd()):
-        return lc.here_no
-    os.chdir(os.getcwd() + "//" + a)
-    return lc.currdir + os.getcwd()
+        print (lc.Err)
+    if currentDir not in os.listdir(os.getcwd()):
+        print(lc.here_no)
+    if currentDir in os.listdir(os.getcwd()):
+        os.chdir(os.getcwd() + "\\" + currentDir)
+        print(lc.currdir + os.getcwd())
 
 def countFiles():
     path_f = []
