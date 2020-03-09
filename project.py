@@ -77,7 +77,7 @@ def countFiles():
         if len(path_f) == 1:
             return 1
         return 1 + int(countFiles_1(list(path_f.pop())))
-    print("Количество файлов: " + countFiles_1(path_f))
+    print(lc.count + countFiles_1(path_f))
 
 
 main()
