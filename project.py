@@ -1,4 +1,4 @@
-# Case-Project №2
+# Case-Project
 # Силкачев 35% Попов 38% Винников 40%
 import os
 import local as lc
@@ -26,7 +26,7 @@ def acceptCommand():
 
 
 
-def moveUp():  # Киррил
+def moveUp():  
     b = os.getcwd()
     b = b[::-1]
     for i in b:
@@ -39,7 +39,7 @@ def moveUp():  # Киррил
     return lc.currdir + os.getcwd()
 
 
-def runCommand(command):  # Vova
+def runCommand(command):  
     if command == 1:
         print(os.listdir(os.getcwd()))
     if command == 2:
@@ -57,7 +57,7 @@ def runCommand(command):  # Vova
         exit()
 
 
-def moveDown(currentDir):  # Kirill
+def moveDown(currentDir):  
     os.chdir("D:\проект\вова")
     if len(os.listdir(os.getcwd())) == 0:
         return lc.Err
@@ -71,20 +71,13 @@ def countFiles():
     path = os.getcwd()
     for d, dirs, files in os.walk(path):
         for f in files:
-            path = os.path.join(d, f)  # формирование адреса
-            path_f.append(path)  # добавление адреса в список
+            path = os.path.join(d, f)       # формирование адреса
+            path_f.append(path)             # добавление адреса в список
     def countFiles_1(path_f):
         if len(path_f) == 1:
             return 1
         return 1 + countFiles_1(path_f.pop())
     countFiles_1(path_f)
 
-
-def countBytes():  # Sashka
-    pass
-
-
-def findFiles(): # (TOP TASK) Sashka
-    pass
 
 main()
