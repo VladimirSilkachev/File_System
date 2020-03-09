@@ -76,7 +76,7 @@ def countFiles():
     def countFiles_1(path_f):
         if len(path_f) == 1:
             return 1
-        return 1 + countFiles_1(path_f.pop())
+        return 1 + int(countFiles_1(path_f.pop()))
     countFiles_1(path_f)
 
 
